@@ -18,23 +18,10 @@
 			name = CommandLine;
 			productName = CommandLine;
 		};
-		"XLIFFMergeTool::XLIFFMergeToolPackageTests::ProductTarget" /* XLIFFMergeToolPackageTests */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_76 /* Build configuration list for PBXAggregateTarget "XLIFFMergeToolPackageTests" */;
-			buildPhases = (
-			);
-			dependencies = (
-				OBJ_79 /* PBXTargetDependency */,
-			);
-			name = XLIFFMergeToolPackageTests;
-			productName = XLIFFMergeToolPackageTests;
-		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		D8025F0C1F755D27000CE867 /* fixtures in Resources */ = {isa = PBXBuildFile; fileRef = D8025EE71F755569000CE867 /* fixtures */; };
-		OBJ_32 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_38 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Package.swift */; };
 		OBJ_44 /* XLIFFMergeToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* XLIFFMergeToolTests.swift */; };
 		OBJ_46 /* XLIFFMergeTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "XLIFFMergeTool::XLIFFMergeTool::Product" /* XLIFFMergeTool.framework */; };
 		OBJ_54 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* main.swift */; };
@@ -67,13 +54,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = "XLIFFMergeTool::XLIFFMergeTool";
 			remoteInfo = XLIFFMergeTool;
-		};
-		D8025EE51F753704000CE867 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "XLIFFMergeTool::XLIFFMergeToolTests";
-			remoteInfo = XLIFFMergeToolTests;
 		};
 		D8025EE61F753704000CE867 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -249,34 +229,6 @@
 			productReference = "CommandLine::CommandLineKit::Product" /* CommandLineKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"CommandLine::SwiftPMPackageDescription" /* CommandLinePackageDescription */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_34 /* Build configuration list for PBXNativeTarget "CommandLinePackageDescription" */;
-			buildPhases = (
-				OBJ_37 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CommandLinePackageDescription;
-			productName = CommandLinePackageDescription;
-			productType = "com.apple.product-type.framework";
-		};
-		"XLIFFMergeTool::SwiftPMPackageDescription" /* XLIFFMergeToolPackageDescription */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_28 /* Build configuration list for PBXNativeTarget "XLIFFMergeToolPackageDescription" */;
-			buildPhases = (
-				OBJ_31 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = XLIFFMergeToolPackageDescription;
-			productName = XLIFFMergeToolPackageDescription;
-			productType = "com.apple.product-type.framework";
-		};
 		"XLIFFMergeTool::XLIFFMergeTool" /* XLIFFMergeTool */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_69 /* Build configuration list for PBXNativeTarget "XLIFFMergeTool" */;
@@ -349,13 +301,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"XLIFFMergeTool::SwiftPMPackageDescription" /* XLIFFMergeToolPackageDescription */,
-				"CommandLine::SwiftPMPackageDescription" /* CommandLinePackageDescription */,
 				"XLIFFMergeTool::XLIFFMergeToolTests" /* XLIFFMergeToolTests */,
 				"XLIFFMergeTool::XLIFFMergeToolCli" /* XLIFFMergeToolCli */,
 				"CommandLine::CommandLineKit" /* CommandLineKit */,
 				"XLIFFMergeTool::XLIFFMergeTool" /* XLIFFMergeTool */,
-				"XLIFFMergeTool::XLIFFMergeToolPackageTests::ProductTarget" /* XLIFFMergeToolPackageTests */,
 				"CommandLine::CommandLine::ProductTarget" /* CommandLine */,
 			);
 		};
@@ -373,22 +322,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_31 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_32 /* Package.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_37 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_38 /* Package.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		OBJ_43 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -441,11 +374,6 @@
 			target = "XLIFFMergeTool::XLIFFMergeTool" /* XLIFFMergeTool */;
 			targetProxy = D8025EE31F753703000CE867 /* PBXContainerItemProxy */;
 		};
-		OBJ_79 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "XLIFFMergeTool::XLIFFMergeToolTests" /* XLIFFMergeToolTests */;
-			targetProxy = D8025EE51F753704000CE867 /* PBXContainerItemProxy */;
-		};
 		OBJ_84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CommandLine::CommandLineKit" /* CommandLineKit */;
@@ -454,15 +382,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_29 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -484,33 +403,6 @@
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;
-		};
-		OBJ_30 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		OBJ_35 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		OBJ_36 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
 		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -694,18 +586,6 @@
 			};
 			name = Release;
 		};
-		OBJ_77 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		OBJ_78 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Release;
-		};
 		OBJ_82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -726,24 +606,6 @@
 			buildConfigurations = (
 				OBJ_3 /* Debug */,
 				OBJ_4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		OBJ_28 /* Build configuration list for PBXNativeTarget "XLIFFMergeToolPackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_29 /* Debug */,
-				OBJ_30 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		OBJ_34 /* Build configuration list for PBXNativeTarget "CommandLinePackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_35 /* Debug */,
-				OBJ_36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -780,15 +642,6 @@
 			buildConfigurations = (
 				OBJ_70 /* Debug */,
 				OBJ_71 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		OBJ_76 /* Build configuration list for PBXAggregateTarget "XLIFFMergeToolPackageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_77 /* Debug */,
-				OBJ_78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
