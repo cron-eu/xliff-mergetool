@@ -12,7 +12,7 @@ public struct XliffFile {
     
     public init(xmlURL: URL) throws {
         self.filename = xmlURL.lastPathComponent
-        xmlDocument = try XMLDocument(contentsOf: xmlURL, options: [])
+        xmlDocument = try XMLDocument(contentsOf: xmlURL, options: [.documentTidyXML])
     }
     
     public enum XliffParseError: Error {
@@ -26,7 +26,15 @@ public struct XliffFile {
         var sourceElement: XMLElement { return xmlElement.elements(forName: "source").first! }
         var source: String { return sourceElement.stringValue! }
 
-        var targetElement: XMLElement { return xmlElement.elements(forName: "target").first! }
+        var targetElement: XMLElement {
+            if let existingElement = xmlElement.elements(forName: "target").first {
+                return existingElement
+            } else {
+                let element = XMLElement(name: "target")
+                xmlElement.insertChild(element, at: 1)
+                return element
+            }
+        }
         var target: String { return targetElement.stringValue! }
         
         init(_ xmlElement: XMLElement) {
