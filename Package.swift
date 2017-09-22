@@ -21,6 +21,10 @@ let package = Package(
         .target(
             name: "XLIFFMergeTool",
             dependencies: []),
+        .target(
+            name: "XLIFFMergeToolCli",
+            dependencies: ["XLIFFMergeTool"],
+            path: "./Sources/cli"),
         .testTarget(
             name: "XLIFFMergeToolTests",
             dependencies: ["XLIFFMergeTool"]),
