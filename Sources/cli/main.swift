@@ -15,6 +15,7 @@ let cli = CommandLineKit.CommandLine()
 enum Operation: String {
     case mergeTarget  = "mergeExistingTranslations"
     case mergeTargetIntoSource = "mergeTargetIntoSource"
+    case info = "info"
 }
 
 let devLangPath = StringOption(shortFlag: "d", longFlag: "dev-lang", required: true,
@@ -24,7 +25,7 @@ let mergePath = StringOption(shortFlag: "m", longFlag: "merge-from", required: t
 let help = BoolOption(shortFlag: "h", longFlag: "help",
                       helpMessage: "Prints a help message.")
 let op = EnumOption<Operation>(shortFlag: "o", longFlag: "operation", required: true,
-                               helpMessage: "Merge operation: mergeExistingTranslations | mergeTargetIntoSource")
+                               helpMessage: "Merge operation: mergeExistingTranslations | mergeTargetIntoSource | info")
 
 cli.setOptions(devLangPath, mergePath, help, op)
 
@@ -42,19 +43,23 @@ guard let operation = op.value else {
 do {
     let devlangXML = try XliffFile(xmlURL: URL(fileURLWithPath: devLangPath.value!))
     let translatedXML = try XliffFile(xmlURL: URL(fileURLWithPath: mergePath.value!))
-    
-    print("Developer Language XLIFF loaded: \(devlangXML)")
-    print("Translated Language XLIFF loaded: \(translatedXML)")
 
+    func output() {
+        let output = String(data: devlangXML.xmlData, encoding: .utf8)!
+        print(output)
+    }
+    
     switch operation {
     case .mergeTarget:
         devlangXML.mergeExistingTranslations(from: translatedXML)
+        output()
     case .mergeTargetIntoSource:
         devlangXML.mergeTargetIntoSource(from: translatedXML)
+        output()
+    case .info:
+        print("Developer Language XLIFF: \(devlangXML)")
+        print("Translated Language XLIFF: \(translatedXML)")
     }
-    
-    let output = String(data: devlangXML.xmlData, encoding: .utf8)!
-    print(output)
     
 } catch {
     print(error)
