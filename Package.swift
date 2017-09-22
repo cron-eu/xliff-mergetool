@@ -23,7 +23,7 @@ let package = Package(
             name: "XLIFFMergeTool",
             dependencies: []),
         .target(
-            name: "XLIFFMergeToolCli",
+            name: "xliff-mergetool",
             dependencies: [
                 "XLIFFMergeTool",
                 "CommandLine",
