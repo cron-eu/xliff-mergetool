@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="id1" datatype="html">
+        <source>Translated Source 1</source>
+        <target>Translated Target 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navigation/nav-breadcrumb/nav-breadcrumb.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">text shown in breadcrumb navigation as 'offer'</note>
+      </trans-unit>
+      <trans-unit id="id2" datatype="html">
+          <source>Translated Source 2</source>
+          <target>Translated Target 2</target>
+          <context-group purpose="location">
+              <context context-type="sourcefile">src/app/components/navigation/nav-breadcrumb/nav-breadcrumb.component.ts</context>
+              <context context-type="linenumber">6</context>
+          </context-group>
+          <note priority="1" from="description">text shown in breadcrumb navigation as 'offer'</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
