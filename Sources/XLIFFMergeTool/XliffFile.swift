@@ -43,15 +43,12 @@ public struct XliffFile {
     }
     
     var transUnits: [TransUnit] {
-        return body.elements(forName: "trans-unit").map { TransUnit($0) }
+        return try! xmlDocument.rootElement()!.nodes(forXPath: "//trans-unit").map { TransUnit($0 as! XMLElement) }
     }
     
     let filename: String
     
     private let xmlDocument: XMLDocument
-    private var body: XMLElement {
-        return xmlDocument.rootElement()!.elements(forName: "file").first!.elements(forName: "body").first!
-    }
 }
 
 extension XliffFile: CustomStringConvertible {
