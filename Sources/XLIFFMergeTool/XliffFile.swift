@@ -12,7 +12,7 @@ public struct XliffFile {
     
     public init(xmlURL: URL) throws {
         self.filename = xmlURL.lastPathComponent
-        xmlDocument = try XMLDocument(contentsOf: xmlURL, options: [.documentTidyXML])
+        xmlDocument = try XMLDocument(contentsOf: xmlURL, options: [])
     }
     
     public enum XliffParseError: Error {
