@@ -26,8 +26,10 @@ let help = BoolOption(shortFlag: "h", longFlag: "help",
                       helpMessage: "Prints a help message.")
 let op = EnumOption<Operation>(shortFlag: "o", longFlag: "operation", required: true,
                                helpMessage: "Merge operation: mergeExistingTranslations | mergeTargetIntoSource | info")
+let targetLanguageParameter = StringOption(shortFlag: "t", longFlag: "target-language", required: false,
+                               helpMessage: "target-language to be set for all files in the generated XLIFF, e.g. de, en, fr, ..")
 
-cli.setOptions(devLangPath, mergePath, help, op)
+cli.setOptions(devLangPath, mergePath, help, op, targetLanguageParameter)
 
 do {
     try cli.parse()
@@ -41,10 +43,13 @@ guard let operation = op.value else {
 }
 
 do {
-    let devlangXML = try XliffFile(xmlURL: URL(fileURLWithPath: devLangPath.value!))
+    var devlangXML = try XliffFile(xmlURL: URL(fileURLWithPath: devLangPath.value!))
     let translatedXML = try XliffFile(xmlURL: URL(fileURLWithPath: mergePath.value!))
 
     func output() {
+        if let targetLanguage = targetLanguageParameter.value {
+            devlangXML.targetLanguage = targetLanguage
+        }
         let output = String(data: devlangXML.xmlData, encoding: .utf8)!
         print(output)
     }

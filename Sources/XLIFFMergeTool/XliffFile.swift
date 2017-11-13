@@ -48,6 +48,16 @@ public struct XliffFile {
     
     let filename: String
     
+    public var targetLanguage: String? {
+        didSet {
+            if let targetLanguage = targetLanguage {
+                xmlDocument.rootElement()!.elements(forName: "file").forEach { (file) in
+                    file.addAttribute(XMLNode.attribute(withName: "target-language", stringValue: targetLanguage) as! XMLNode)
+                }
+            }
+        }
+    }
+    
     private let xmlDocument: XMLDocument
 }
 
