@@ -48,7 +48,7 @@ public struct XliffFile {
             guard let fileName = fileElement.attribute(forName: "original")?.stringValue else {
                 fatalError("XLIFF structure error, original attribute of the file element is missing")
             }
-            self.fileName = fileName
+            self.fileName = fileName.replacingOccurrences(of: "en.lproj/", with: "")
         }
     }
     
