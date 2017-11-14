@@ -31,4 +31,13 @@
         </trans-unit>
     </body>
   </file>
+  <file source-language="en" datatype="plaintext" original="file2">
+      <body>
+          <trans-unit id="id1" datatype="html">
+              <source>Original Source 1 File2</source>
+              <target>Translated Target 1 File2</target>
+              <note priority="1" from="description">text shown in breadcrumb navigation as 'offer'</note>
+          </trans-unit>
+      </body>
+  </file>
 </xliff>

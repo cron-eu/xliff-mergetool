@@ -21,8 +21,10 @@ public struct XliffFile {
     
     struct TransUnit {
         let xmlElement: XMLElement
+        let fileName: String
+        
         var id: String { return xmlElement.attribute(forName: "id")!.stringValue! }
-
+        
         var sourceElement: XMLElement { return xmlElement.elements(forName: "source").first! }
         var source: String { return sourceElement.stringValue! }
 
@@ -39,6 +41,14 @@ public struct XliffFile {
         
         init(_ xmlElement: XMLElement) {
             self.xmlElement = xmlElement
+            let fileElement = xmlElement.parent!.parent as! XMLElement
+            guard fileElement.name == "file" else {
+                fatalError("XLIFF structure error")
+            }
+            guard let fileName = fileElement.attribute(forName: "original")?.stringValue else {
+                fatalError("XLIFF structure error, original attribute of the file element is missing")
+            }
+            self.fileName = fileName
         }
     }
     
@@ -69,7 +79,7 @@ extension XliffFile: CustomStringConvertible {
 
 extension XliffFile.TransUnit: Equatable {
    static func ==(lhs: XliffFile.TransUnit, rhs: XliffFile.TransUnit) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.id == rhs.id && lhs.fileName == rhs.fileName
     }
 }
 
