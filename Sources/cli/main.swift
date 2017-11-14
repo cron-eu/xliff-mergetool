@@ -16,16 +16,17 @@ enum Operation: String {
     case mergeTarget  = "mergeExistingTranslations"
     case mergeTargetIntoSource = "mergeTargetIntoSource"
     case info = "info"
+    case initialize = "init"
 }
 
 let devLangPath = StringOption(shortFlag: "d", longFlag: "dev-lang", required: true,
                                helpMessage: "Path to the (auto-generated) Development Language XLIFF File")
-let mergePath = StringOption(shortFlag: "m", longFlag: "merge-from", required: true,
+let mergePath = StringOption(shortFlag: "m", longFlag: "merge-from", required: false,
                              helpMessage: "Path to the (partially) translated XLIFF File")
 let help = BoolOption(shortFlag: "h", longFlag: "help",
                       helpMessage: "Prints a help message.")
 let op = EnumOption<Operation>(shortFlag: "o", longFlag: "operation", required: true,
-                               helpMessage: "Merge operation: mergeExistingTranslations | mergeTargetIntoSource | info")
+                               helpMessage: "Merge operation: mergeExistingTranslations | mergeTargetIntoSource | info | init")
 let targetLanguageParameter = StringOption(shortFlag: "t", longFlag: "target-language", required: false,
                                helpMessage: "target-language to be set for all files in the generated XLIFF, e.g. de, en, fr, ..")
 
@@ -44,7 +45,6 @@ guard let operation = op.value else {
 
 do {
     var devlangXML = try XliffFile(xmlURL: URL(fileURLWithPath: devLangPath.value!))
-    let translatedXML = try XliffFile(xmlURL: URL(fileURLWithPath: mergePath.value!))
 
     func output() {
         if let targetLanguage = targetLanguageParameter.value {
@@ -56,14 +56,19 @@ do {
     
     switch operation {
     case .mergeTarget:
+        let translatedXML = try XliffFile(xmlURL: URL(fileURLWithPath: mergePath.value!))
         devlangXML.mergeExistingTranslations(from: translatedXML)
         output()
     case .mergeTargetIntoSource:
+        let translatedXML = try XliffFile(xmlURL: URL(fileURLWithPath: mergePath.value!))
         devlangXML.mergeTargetIntoSource(from: translatedXML)
         output()
     case .info:
+        let translatedXML = try XliffFile(xmlURL: URL(fileURLWithPath: mergePath.value!))
         print("Developer Language XLIFF: \(devlangXML)")
         print("Translated Language XLIFF: \(translatedXML)")
+    case .initialize:
+        output()
     }
     
 } catch {
